@@ -1,27 +1,31 @@
-# The Evolution of Tech Skills — CS 418 Team Blue
+# The Evolution of Tech Skills
 
-## Setup
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
+## Overview
+This project explores how technical skills in the job market have changed over time, especially with the rise of AI. We analyze job postings to identify trends in programming languages, tools, and technologies that employers are looking for.
+
+## Dataset
+We use job postings from Hacker News monthly "Who is Hiring?" threads, covering January 2023 to November 2026.
+
+Our dataset includes over 15,000 posts with information about job roles, companies, locations, and technical skills.
+
+## Project Goals
+- Identify the most in-demand technical skills.
+- Track how skill demand changes over time.
+- Explore the impact of AI on tech jobs.
+- Compare skills across different job roles and experience levels.
+
+## Technologies
+Python, Pandas, Jupyter Notebook, Matplotlib, Seaborn, and Scikit-learn.
+
+## Repository Structure
+```text
+TechSkills/
+├── data/          # Raw and cleaned datasets
+├── notebooks/     # Analysis and visualizations
+├── src/           # Data collection and cleaning scripts
+├── requirements.txt
+└── README.md
 ```
 
-## Collect and clean (Ammani)
-```bash
-python src/collect_data.py --start-year 2023 --end-year 2026
-python src/clean_data.py
-```
-The collection script queries public Hacker News Algolia search results and keeps only top-level comments. Inspect the collection logs and validate a sample against the original threads; API results may be incomplete. For the deadline, use 2023–2026 rather than assuming full historical coverage since 2011. The `remote` field indicates the word appears, **not** that the job is confirmed remote. `company` is a heuristic (text before the first `|`); `role`, `location`, and `salary` are intentionally blank pending reliable extraction. `skills` are keyword matches, not necessarily required skills.
-
-## Teammates
-- Teresa: `notebooks/02_visualizations_teresa.ipynb` (3 charts)
-- Kendi: `notebooks/03_visualizations_kendi.ipynb` (2 charts)
-- Daisy: `notebooks/04_machine_learning.ipynb` (2 analyses + baselines)
-- Ammani: data scripts and `notebooks/01_data_collection.ipynb`
-
-Read `data/processed/jobs_cleaned.csv` with `pd.read_csv(...)`. If needed, convert `skills` to lists using `str.split(', ')`. Commit to separate branches and open pull requests. Do not overwrite teammates' notebooks.
-
-## Submission
-Combine work in `notebooks/progress_report.ipynb`, run all cells top-to-bottom, commit to private GitHub, and export a PDF for Gradescope by Nov 13. Include project introduction, changes since proposal, data preparation, EDA, five explained visualizations with member names, two ML analyses with baselines and member names, reflection, and next steps.
+## Team
+CS 418 | Fall 2026 | University of Illinois Chicago
